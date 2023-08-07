@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Canvas</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">  
+  </head>
+      <body>
+        <header>
+          <h2>HTML CANVAS</h2>
+          <p>Html canvas used to draw the graphics,canvas element is only
+             a container for graphics<br>we must use javascript
+             to actually draw the graphics.Canvas has several methods for
+            <br>drawing paths,boxes,circles,text and adding images
+            <br> by default canva has no border and no content
+            it is a rectangulat area on the html page</p>
+                <canvas id="mycanvas" width="200" height="100" style="border:2px solid red">
+                </canvas>
+                <br>
+                  <br>
+                    <canvas id="circ" width="200" height="100" style="border:2px groove green">
+                    </canvas>
+                    <h3>Key methods in canvas element</h3>
+                    <ol>
+                      <li>DRAWING PATH</li>
+                      <ol>
+                        <li>beginPath() ==starts new path or resets the current path</li>
+                        <li>moveTo(x,y)==move the current drawing path to the specified coordinates</li>
+                        <li>lineTo(x,y)==Draw a straight line from the current point to the specified coordinates</li>
+                        <li>arc(x,y,radius,startAngle,endAngle,anticlockwise) == draws an arc or a portion of a circle</li>
+                        <li>rect(x,y,width,height)==draw a rectangle</li>
+                        <li>quadraticCurveTo(cpx,cpy,x,y)==draws a quadratic bezier curve from the current point to the endpoint</li>
+                        <li>bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)==draws a cubic bezier curve from the current point to the endpoint</li>
+                      </ol>
+                      <li>Drawing styles</li>
+                      <ol>
+                        <li>stroke()==strokes the current path with the current stroke style</li>
+                        <li>fill()==fill the current path with the current fill style</li>
+                        <li>strokeStyle==sets the color ,gradient,pattern used for strokes</li>
+                        <li>fillStyle==sets the color,gradient,pattern used for fill</li>
+                      </ol>
+                      <li>Line and shape styles</li>
+                      <ol>
+                        <li>lineWidth=="sets the width of lines"</li>
+                        <li>lineCap==sets the style used to draw the ends of lines</li>
+                        <li>lineJoin== sets the style used to determine the shape at the corners where lines meet</li>
+                        <li>miterlimit==sets the maximum miter length for lineJoin='miter'</li>
+                      </ol>
+                      <li>Text</li>
+                      <ol>
+                        <li>font==set the font properties for text rendering</li>
+                        <li>textAlign==sets the horizontal alignment of text</li>
+                        <li>textBaseline==sets the baseline alignment</li>
+                        <li>fillText(text,x,y)==fill the given text at the specified (x,y) position </li>
+                        <li>strokeText(text,x,y)==strokes the given text at the specified (x,y)position </li>
+                      </ol>
+                      <li>Image Drawing</li>
+                      <ol>
+                        <li>drawImage(Image,x,y)== draw an image video or canvas on the canvas</li>
+                        <li>createPattern(image,repetition)== creates a pattern from an image ,video or canvas</li>
+                      </ol>
+                      <li>Transformations</li>
+                      <ol>
+                        <li>translate(x,y)==move the canvas and its origin to specified(x,y) position</li>
+                        <li>rotate(angel)== rotate the canvas around the current origin by the specified angle (in radians)</li>
+                        <li>scale(scaleX,scaleY)==scales the canvas by the specified factors in the x and y directions</li>
+                        <li>transform(a,b,c,d,e,f)==applies teh custom 2D transformation matrix to the current context</li>
+                        <li>setTransform(a,b,c,d,e,f)==resets teh current transformatiion matrix with a custom matrix</li>
+                      </ol>
+                      <li>Clipping</li>
+                      <ol>
+                        <li>clip()==clips the current path using the current path or a given PATH</li>
+                        <li>resetClip()==resets the clipping region to the full canvas</li>
+                      </ol>
+                    </ol>
+                    <canvas id="demo" width="200" height="100" style="border:3px solid violet">
+                    </canvas>
+                    <br>
+                      <canvas id="second" width="200" height="100" style="border:3px solid violet">
+                    </canvas>
+                      <br>
+                        <canvas id="third" width="200" height="100" style="border:3px solid violet">
+                    </canvas>
+                        <br>
+                          <canvas id="fourth" width="200" height="100" style="border:3px solid violet">
+                    </canvas>
+                          <br>
+                            <canvas id="fifth" width="200" height="100" style="border:3px solid violet">
+                    </canvas>
+                            <script>  
+      //FIRST EXAMPLE
+      var canvas=document.getElementById('demo');
+      var cont=canvas.getContext('2d');
+      //define a path
+      cont.beginPath();
+      cont.moveTo(50,50);
+      cont.lineTo(150,50);
+      //cont.lineTo(100,100);
+      
+      //set the stroke style
+      cont.strokeStyle="orange";
+      
+      //set the line width
+      cont.lineWidth=6;
+      
+      //set the line cap style
+      cont.lineCap="square";
+                     
+      //stroke the path(draw the outlines)
+       cont.stroke();
+     
+
+      //SECOND EXAMPLE--CIRCLE
+      var second=document.getElementById('second');
+      var seCont=second.getContext('2d');
+
+      seCont.beginPath();
+      seCont.arc(97,50,45,0,2*Math.PI);
+      seCont.stroke();
+
+      //THIRD EXAMPLE--RECTANGLE
+      var third=document.getElementById('third');
+      var tCont=third.getContext('2d');
+
+      tCont.beginPath();
+      tCont.rect(50,50,100,75);
+      tCont.stroke();
+
+
+      //fourth example
+      var fourth=document.getElementById('fourth');
+      var fCont=fourth.getContext('2d');
+      fCont.beginPath();
+      fCont.moveTo(50,100);
+      fCont.quadraticCurveTo(100,50,150,100);
+      fCont.stroke();
+
+      //fifth EXAMPLE//fourth example
+      var fifth=document.getElementById('fifth');
+      var c=fifth.getContext('2d');
+      c.beginPath();
+      c.moveTo(50,100);
+      c.bezierCurveTo(60,50,120,150,150,100);
+      c.stroke();
+     var c=document.getElementById('mycanvas');
+      var value=c.getContext("2d");
+      value.moveTo(0,0);
+      value.lineTo(300,150);
+      value.stroke();
+    
+      var circle=document.getElementById('circ');
+      var v=circle.getContext("2d");
+      v.beginPath();
+      v.arc(95,50,40,0,2*Math.PI);
+      v.stroke();
+     </script>
+                          </body>
+                        </html>

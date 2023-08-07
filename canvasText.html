@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>CanvasText</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+      <body>
+        <canvas id="myCanvas" width="300" height="200" style="border:2px groove yellow">
+Your browser does not support canvas tag</canvas>
+        <br>
+          <hr>
+            <canvas id="grad" width="250" height="150" style="border: 2px double #45f0ff">
+may be browser not support canvas tag</canvas>
+            <br>
+              <script>
+var element=document.getElementById('grad');
+var cont=element.getContext('2d');
+
+//create gradient
+var grd=cont.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"yellow");
+
+cont.fillStyle=grd;
+cont.fillRect(10,10,150,80);
+
+var can=document.getElementById('myCanvas');
+var context=can.getContext('2d');
+var text="Hello kaviya";
+var a=20;
+var b=40;
+var maxWidth=150;
+context.font="30px Arial";
+context.strokeText(text,a,b,maxWidth);
+
+</script>
+            </body>
+          </html>
